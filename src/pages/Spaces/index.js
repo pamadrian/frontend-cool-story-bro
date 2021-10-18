@@ -19,14 +19,13 @@ export default function HomePage(props) {
 
   return (
     <div>
-      <h1> All Spaces</h1>
+      <h1> Spaces</h1>
       <ul>
         {spaces.map((props) => (
           <div>
-            {" "}
-            key= {props.id}
-            Title={props.title}
-            description={props.description}
+            <h1> {props.title} </h1>
+            <p> {props.description} </p>
+            <button onClick={""}>Visit space</button>
           </div>
         ))}
       </ul>
