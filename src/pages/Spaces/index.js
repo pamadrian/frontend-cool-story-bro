@@ -20,7 +20,10 @@ export default function Spaces() {
       <div>
         <h1> Spaces</h1>
         {spaces.map((space) => (
-          <div className="box" color={space.backgroundColor}>
+          <div
+            className="box"
+            style={{ backgroundColor: space.backgroundColor }}
+          >
             <h1> {space.title} </h1>
             <p> {space.description} </p>
             <Link to={`/spaces/${space.id}`}>
