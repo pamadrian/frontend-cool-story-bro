@@ -1,35 +1,35 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllSpaces } from "../../store/spaces/actions";
+import { selectAllSpaces } from "../../store/spaces/selectors";
+import "./spaces.css";
+import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 
-export default function HomePage(props) {
-  const [spaces, setSpaces] = useState([{}]);
-  console.log("a render!");
+export default function Spaces() {
+  const dispatch = useDispatch();
+  const spaces = useSelector(selectAllSpaces);
+  console.log("selector?", spaces);
 
   useEffect(() => {
-    async function doSomeDataFetching() {
-      console.log("the useEffect action!");
-
-      const response = await axios.get(`http://localhost:4000/spaces`);
-      console.log("got back response", response.data);
-      setSpaces(response.data);
-    }
-
-    doSomeDataFetching();
+    dispatch(fetchAllSpaces);
   }, []);
 
   return (
-    <div>
-      <h1> Spaces</h1>
-      <ul>
-        {spaces.map((props) => (
-          <div>
-            <h1> {props.title} </h1>
-            <p> {props.description} </p>
-            <button onClick={""}>Visit space</button>
+    <Container>
+      <div>
+        <h1> Spaces</h1>
+        {spaces.map((space) => (
+          <div className="box" color={space.backgroundColor}>
+            <h1> {space.title} </h1>
+            <p> {space.description} </p>
+            <Link to={`/spaces/${space.id}`}>
+              <button>Visit space</button>
+            </Link>
           </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </Container>
   );
 }
 

@@ -1,8 +1,7 @@
-import { combineReducers, createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 
 import ReduxThunk from "redux-thunk";
 import reducer from "./rootReducer";
-import spaceReducer from "./spaces/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

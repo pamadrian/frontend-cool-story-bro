@@ -1,42 +1,24 @@
-# Frontend template
-
-This is a simple react/redux/jwt template to start a project quickly
-
-## Table of contents:
-
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
-
-## SETUP How to use this template
-
-1. Create a new project based on this template using the `Use this template` button
-
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
-
-2. Clone the app
-
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
-
-3. cd into your project
-
-```
-cd YOUR_PROJECT_NAME
-```
-
-4. install dependencies
-
-```
-npm install
-```
-
-5. Start development server with npm start
-
-```
-npm start
-```
-
-## CRA docs
-
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+1 - create component / page
+2 - fetch the data I need
+2.1 - create a redux slice ( actions, reducer, selectors)
+2.2 - create a thunk (action) to do my data fetching
+2.3 - back in the page/component, dispatch my new thunk (action)
+3 - Server side
+3.1 - create the endpoint necessary to get the data from the DB
+3.2 - send the results of the query to the frontend ( res.send(......) )
+4 - put my response.data into the reducer
+4.1 - create an action creator. A function that returns an object with a type and payload
+{
+type: "WHATEVER_YOU_CALL_IT",
+payload: data || null
+}
+4.2 - dispatch the action creator (dispatch(actionCreator(response.data)))
+5 - Reducer
+5.1 - create a case to handle our need. Each case has to match the type of an action creator
+5.1.1 - check if we are getting here with clg
+5.2 - manipulate the data as you need to
+5.2.1 - check if the state looks the way we want it to, as in, does it have the data in the right place
+5.3 - return a new state
+6 - create a selector. Selector select data from the redux state
+7 - use the selector in the page/component ( useSelector(SELECTOR) )
+8 - RENDER the data

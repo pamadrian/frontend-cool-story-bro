@@ -1,2 +1,2 @@
-export const selectAppLoading = (state) => state.appState.loading;
-export const selectMessage = (state) => state.appState.message;
+export const selectAppLoading = (reduxState) => reduxState.appState.loading;
+export const selectMessage = (reduxState) => reduxState.appState.message;
