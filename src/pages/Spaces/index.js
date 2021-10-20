@@ -18,16 +18,23 @@ export default function Spaces() {
   return (
     <Container>
       <div>
-        <h1> Spaces</h1>
         {spaces.map((space) => (
           <div
             className="box"
             style={{ backgroundColor: space.backgroundColor }}
           >
-            <h1> {space.title} </h1>
-            <p> {space.description} </p>
+            <div className="h2">
+              <h2> {space.title} </h2>
+            </div>
+            <div className="p">
+              <p> {space.description} </p>
+            </div>
+            <br />
+            <br />
             <Link to={`/spaces/${space.id}`}>
-              <button>Visit space</button>
+              <button class="button-74" role="button">
+                Visit Space
+              </button>
             </Link>
           </div>
         ))}

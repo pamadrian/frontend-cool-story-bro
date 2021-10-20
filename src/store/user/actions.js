@@ -32,6 +32,7 @@ export const spaceUpdated = (space) => ({
   payload: space,
 });
 
+// dit is de sign up code waar je een nieuw account mee aanmaakt.
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());

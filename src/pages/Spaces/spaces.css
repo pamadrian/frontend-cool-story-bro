@@ -1,5 +1,83 @@
 .box {
-  border-radius: 0px;
-  border: 1px solid rgb(0, 0, 0);
+  border-radius: 20px;
   background-color: #ffff;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  top: 50%;
+  left: 50%;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.h1 {
+  font-family: Georgia, serif;
+  color: #2b7a9e;
+  position: relative;
+  top: 10px;
+}
+
+.h2 {
+  font-family: Georgia, serif;
+  text-align: center;
+  position: relative;
+  top: 15px;
+}
+
+.h3 {
+  font-family: "Consolas", "monaco", monospace;
+}
+
+.p {
+  font-family: "Courier New", monospace;
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+/* CSS */
+.button-74 {
+  background-color: #ff8400;
+  border: 2px solid #5a83b8;
+  border-radius: 30px;
+  /* box-shadow: #e99820 4px 4px 0 0; */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  color: #a4bfcc;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  top: 50%;
+  left: 40%;
+  margin-bottom: 50px;
+}
+
+.button-74:hover {
+  background-color: rgb(214, 186, 59);
+}
+
+.button-74:active {
+  box-shadow: #cf8413 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
 }

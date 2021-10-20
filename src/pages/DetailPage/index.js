@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSpaceDetails } from "../../store/spaces/actions";
 import { selectAllSpaceDetails } from "../../store/spaces/selectors";
 import moment from "moment";
+import "./detailPage.css";
 
 export default function DetailPage() {
   const dispatch = useDispatch();
