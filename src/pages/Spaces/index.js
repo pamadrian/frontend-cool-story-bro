@@ -32,7 +32,7 @@ export default function Spaces() {
             <br />
             <br />
             <Link to={`/spaces/${space.id}`}>
-              <button class="button-74" role="button">
+              <button className="button-74" role="button">
                 Visit Space
               </button>
             </Link>
