@@ -14,10 +14,12 @@ import DetailPage from "./pages/DetailPage";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+import { selectToken } from "../src/store/user/selectors";
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -30,7 +32,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={Spaces} />
-        <Route path="/myspace" component={MySpace} />
+        {token ? <Route path="/myspace" component={MySpace} /> : null}
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/spaces/:id" component={DetailPage} />
