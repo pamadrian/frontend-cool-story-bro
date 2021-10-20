@@ -44,6 +44,7 @@ export const signUp = (name, email, password) => {
       });
 
       dispatch(loginSuccess(response.data));
+      console.log("HOI???", response.data);
       dispatch(showMessageWithTimeout("success", true, "account created"));
       dispatch(appDoneLoading());
     } catch (error) {
