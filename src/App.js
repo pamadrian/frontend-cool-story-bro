@@ -32,7 +32,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={Spaces} />
-        {token ? <Route path="/myspace" component={MySpace} /> : null}
+        <Route path="/myspace" component={MySpace} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/spaces/:id" component={DetailPage} />
