@@ -100,7 +100,7 @@ export const getUserWithStoredToken = () => {
       const response = await axios.get(`${apiUrl}/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
+      console.log(response.data);
       // token is still valid
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());

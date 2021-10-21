@@ -11,7 +11,7 @@ export default function DetailPage() {
   const params = useParams();
   const id = params.id;
   const spaceDetails = useSelector(selectAllSpaceDetails);
-  console.log("selectordetails?", spaceDetails);
+  // console.log("selectordetails?", spaceDetails);
 
   useEffect(() => {
     dispatch(fetchSpaceDetails(id));

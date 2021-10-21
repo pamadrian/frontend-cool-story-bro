@@ -1,8 +1,8 @@
 1 - create component / page
 2 - fetch the data I need
 2.1 - create a redux slice ( actions, reducer, selectors)
-2.2 - create a thunk (action) to do my data fetching
-2.3 - back in the page/component, dispatch my new thunk (action)
+2.2 - create a thunk (action) to do my data fetching / deletion / update
+2.3 - back in the page/component, dispatch my (new) thunk (action)
 3 - Server side
 3.1 - create the endpoint necessary to get the data from the DB
 3.2 - send the results of the query to the frontend ( res.send(......) )

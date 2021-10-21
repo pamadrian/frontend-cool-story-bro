@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Spaces() {
   const dispatch = useDispatch();
   const spaces = useSelector(selectAllSpaces);
-  console.log("selector?", spaces);
+  // console.log("selector?", spaces);
 
   useEffect(() => {
     dispatch(fetchAllSpaces);
