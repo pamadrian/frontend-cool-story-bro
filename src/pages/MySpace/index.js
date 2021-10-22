@@ -1,7 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import Button from "react-bootstrap/Button";
 
+import { deleteStory } from "../../store/user/actions";
 import { selectUser } from "../../store/user/selectors";
 
 import "./mySpace.css";
@@ -12,6 +14,11 @@ export default function MySpace() {
   const user = useSelector(selectUser);
 
   // console.log("USER???", user);
+  // DELETE STORY
+  const onDelete = (id) => {
+    console.log("deleting story!", id);
+    dispatch(deleteStory(id));
+  };
 
   if (!user.space) return <h1>Loading...</h1>;
 
@@ -40,6 +47,9 @@ export default function MySpace() {
               Date: {""}
               {moment(story.createdAt).format("DD-MM-YYYY")}{" "}
             </p>
+            <Button variant="danger" onClick={() => onDelete(story.id)}>
+              Delete story
+            </Button>
           </div>
         ))}
       </div>
