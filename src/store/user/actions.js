@@ -15,6 +15,7 @@ export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
 export const SPACE_UPDATED = "SPACE_UPDATED";
 export const STORY_DELETE_SUCCESS = "STORY_DELETE_SUCCESS";
+export const STORY_POST_SUCCESS = "STORY_POST_SUCCESS";
 
 const loginSuccess = (userWithToken) => {
   return {
@@ -38,6 +39,12 @@ export const logOut = () => ({ type: LOG_OUT });
 export const spaceUpdated = (space) => ({
   type: SPACE_UPDATED,
   payload: space,
+});
+
+// Posting story
+export const storyPostSuccess = (story) => ({
+  type: STORY_POST_SUCCESS,
+  payload: story,
 });
 
 // dit is de sign up code waar je een nieuw account mee aanmaakt.
@@ -148,5 +155,35 @@ export const deleteStory = (storyId) => {
     } catch (e) {
       console.error(e);
     }
+  };
+};
+
+// post Story
+export const postStory = (name, content, imageUrl) => {
+  return async (dispatch, getState) => {
+    const { space, token } = selectUser(getState());
+    // console.log(name, content, imageUrl);
+    dispatch(appLoading());
+
+    const response = await axios.post(
+      `${apiUrl}/${space.id}/stories`,
+      {
+        name,
+        content,
+        imageUrl,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Yep!", response);
+    dispatch(
+      showMessageWithTimeout("success", false, response.data.message, 3000)
+    );
+    dispatch(storyPostSuccess(response.data.story));
+    dispatch(appDoneLoading());
   };
 };

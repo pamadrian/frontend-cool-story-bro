@@ -18,7 +18,6 @@ export default function DetailPage() {
   }, [dispatch, id]);
 
   if (!spaceDetails) return <h1>Loading...</h1>;
-
   return (
     <div style={{ backgroundColor: spaceDetails.backgroundColor }}>
       <h1>{spaceDetails.title}</h1>

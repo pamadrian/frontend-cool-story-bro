@@ -3,6 +3,7 @@ import {
   LOGIN_SUCCESS,
   TOKEN_STILL_VALID,
   STORY_DELETE_SUCCESS,
+  STORY_POST_SUCCESS,
 } from "./actions";
 
 const initialState = {
@@ -35,6 +36,15 @@ export default function reducer(state = initialState, action) {
         space: {
           ...state.space,
           stories: newStories,
+        },
+      };
+
+    case STORY_POST_SUCCESS:
+      return {
+        ...state,
+        space: {
+          ...state.space,
+          stories: [...state.space.stories, action.payload],
         },
       };
 
